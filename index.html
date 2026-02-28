@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Hand Basketball App</title>
+    <style>
+        /* 全局样式与颜色定义 */
+        :root {
+            --bg-color: #000000;
+            --text-white: #ffffff;
+            --text-grey: #8a8a8e;
+            --card-bg: #111111;
+            --shape-color: #222222;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 顶部导航栏 */
+        header {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 3rem;
+            box-sizing: border-box;
+        }
+
+        .header-logo {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .header-nav a {
+            color: var(--text-grey);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* 英雄区域 (Hero Section) */
+        .hero {
+            text-align: center;
+            margin-top: 6rem;
+        }
+
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px; /* 匹配 iOS 图标圆角 */
+            margin-bottom: 2.5rem;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-grey);
+            margin: 0;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        /* 关于区域 (About Section) */
+        .about {
+            text-align: center;
+            max-width: 700px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+        }
+
+        .about h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -1px;
+            line-height: 1.15;
+        }
+
+        .about p {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-grey);
+            margin: 0;
+            letter-spacing: -1px;
+            line-height: 1.15;
+        }
+
+        /* 功能卡片区域 (Features Section) */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 6rem;
+            padding: 0 2rem;
+            box-sizing: border-box;
+        }
+
+        .feature-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image-box {
+            background-color: var(--card-bg);
+            height: 320px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 纯 CSS 绘制卡片内部的几何图形 */
+        .shape-square {
+            width: 90px;
+            height: 90px;
+            background-color: var(--shape-color);
+        }
+
+        .shape-circle {
+            width: 96px;
+            height: 96px;
+            background-color: var(--shape-color);
+            border-radius: 50%;
+        }
+
+        .shape-triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 86px solid var(--shape-color);
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.5px;
+        }
+
+        .feature-desc {
+            color: var(--text-grey);
+            font-size: 1.05rem;
+            line-height: 1.4;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* 页脚区域 (Footer) */
+        footer {
+            width: 100%;
+            max-width: 1000px;
+            border-top: 1px solid #1a1a1a;
+            margin: 2rem auto 4rem;
+            padding: 3rem 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        /* 底部左侧 logo 图形 */
+        .footer-logo-shapes {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .f-shape-square { width: 14px; height: 14px; background-color: var(--text-grey); }
+        .f-shape-circle { width: 14px; height: 14px; background-color: var(--text-grey); border-radius: 50%; }
+        .f-shape-triangle { width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 14px solid var(--text-grey); }
+
+        .footer-links {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-column-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-white);
+            margin-bottom: 0.2rem;
+        }
+
+        .footer-column a, .footer-column span {
+            color: var(--text-grey);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-logo">Hot Hand Basketball App</div>
+        <nav class="header-nav">
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Blog</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="app_icon.png" alt="Hot Hand App Icon" class="app-icon">
+            <h1 class="hero-title">Make Every Shot Count.</h1>
+            <h2 class="hero-subtitle">Track. Analyze. Improve.</h2>
+        </section>
+
+        <section class="about">
+            <h2>Hot Hand is a basketball training<br>app built for serious shooters.</h2>
+            <p>Record sessions with Apple Watch.<br>Analyze shots on iPhone.<br>Follow personalized guides, and<br>track your progress over time.</p>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="card-image-box">
+                    <div class="shape-square"></div>
+                </div>
+                <h3 class="feature-title">watchOS recorder.</h3>
+                <p class="feature-desc">The high fidelity shooting motion recorded in 200Hz powered by your Apple Watch.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="card-image-box">
+                    <div class="shape-circle"></div>
+                </div>
+                <h3 class="feature-title">iPhone analysis.</h3>
+                <p class="feature-desc">Review shot results, visualize motion metrics, and discover your personalized diagnosis.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-image-box">
+                    <div class="shape-triangle"></div>
+                </div>
+                <h3 class="feature-title">Training guides.</h3>
+                <p class="feature-desc">Believe the biomechanics and physics behind your shot. Focus. Practice. See the change.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo-shapes">
+            <div class="f-shape-square"></div>
+            <div class="f-shape-circle"></div>
+            <div class="f-shape-triangle"></div>
+        </div>
+        <div class="footer-links">
+            <div class="footer-column">
+                <div class="footer-column-title">App</div>
+                <a href="#">Download</a>
+                <a href="#">Features</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-column">
+                <div class="footer-column-title">Support</div>
+                <a href="#">Contact</a>
+                <a href="#">FAQ</a>
+                <a href="#">Docs</a>
+            </div>
+            <div class="footer-column">
+                <div class="footer-column-title">Social</div>
+                <a href="#">Instagram</a>
+                <span>© 2026 Hot Hand</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
