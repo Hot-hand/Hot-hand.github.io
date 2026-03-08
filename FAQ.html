@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Hot Hand Basketball App</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --bg-card: #1a1a1a;
+      --text: #f5f5f5;
+      --text-muted: #a3a3a3;
+      --accent: #f97316;
+      --accent-hover: #ea580c;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    /* Nav — match main site */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--text); }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+    .hero p { color: var(--text-muted); margin: 0; }
+
+    /* Main content */
+    .main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    /* FAQ accordion */
+    .faq-list { list-style: none; padding: 0; margin: 0; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .faq-q:hover { background: rgba(255,255,255,0.03); }
+    .faq-q::after {
+      content: "+";
+      font-size: 1.25rem;
+      font-weight: 300;
+      flex-shrink: 0;
+      margin-left: 0.5rem;
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a {
+      padding: 0 1.25rem 1rem;
+      display: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      white-space: pre-line;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* Sections */
+    .section { margin-top: 3rem; }
+    .section h2 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .section p { color: var(--text-muted); margin: 0 0 0.75rem; }
+    .section .link-btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    .section .link-btn:hover { background: var(--accent-hover); text-decoration: none; }
+
+    /* Footer — match main site */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .footer-links a { color: var(--text-muted); }
+    .footer-copy { color: var(--text-muted); font-size: 0.875rem; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html">Hot Hand</a>
+    <div class="nav-links">
+      <a href="index.html#">App</a>
+      <a href="index.html#">Download</a>
+      <a href="index.html#">Features</a>
+      <a href="index.html#">Blog</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>FAQ</h1>
+    <p>Frequently asked questions about Hot Hand — recording on Watch, analysis on iPhone, and how to get the most out of your training.</p>
+  </header>
+
+  <main class="main">
+    <section>
+      <h2 style="font-size:1.15rem; color: var(--text-muted); margin-bottom: 1.25rem;">Frequently Asked Questions</h2>
+      <ul class="faq-list">
+        <li class="faq-item">
+          <button type="button" class="faq-q">What does 🔥 mean?</button>
+          <div class="faq-a">Keep shooting. You'll find out.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">How are the metrics scored?</button>
+          <div class="faq-a">Everyone has a unique shooting form and their own habits. We don't believe in forcing a universal "cookie-cutter" template. However, we do believe that a great shot is consistent, repeatable, and shares certain core characteristics.
+
+Hot Hand learns your personal "shot signature" to help you achieve the best version of your form. We use your most recent 100 makes (or your last 50 makes for a specific drill) to analyze the mechanics of your successful shots. This becomes the baseline for your score.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">Why doesn't Hot Hand perfectly predict whether my shot goes in or not?</button>
+          <div class="faq-a">Hot Hand is designed with a "high recall" machine learning approach. This means if we predict a shot will go in, it's because the biomechanics matched your historical "Make Pattern." However, it still might miss due to variables we can't track on your non-shooting wrist (like an awkward release or bad fingertip roll).
+
+On the flip side, if the app flags a shot as a highly unlikely make based on your form, you can trust that it was genuinely a low-percentage shot.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">What exactly do the plots on the Metric Detail Cards show?</button>
+          <div class="faq-a">They display the specific biomechanical indicators we track. For these metrics, "higher" or "lower" isn't always better.
+
+Instead, you will see a "MADE Band" on the plot, which represents the physical state of your arm during your past successful shots. The closer your current shot stays within this band (the best version of yourself), the better the shot quality, and the higher your score will be.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">How can I use Hot Hand to actually improve my shooting?</button>
+          <div class="faq-a">Improvement requires putting in the reps, but Hot Hand gives those reps direction. We map the biomechanics of a basketball shot to the physical data captured by your Apple Watch (using the gyroscope and accelerometer). By combining this with statistical analysis and machine learning, we act as a coach on your wrist. The app pinpoints exactly what mechanical inconsistencies you need to focus on during your training.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">Why is my data quality low? Why does my session often show a "--" score?</button>
+          <div class="faq-a">Here is a quick checklist to ensure high-quality tracking:
+
+• Wear it snug: Make sure your Apple Watch is tight against your wrist so it doesn't wobble during your release.
+
+• Log quickly: Log your makes/misses immediately after the shot.
+
+• Keep it active: Try to keep the app in the foreground. Minimize returning to the watch home screen or using other apps mid-session.
+
+Note on watchOS limits: Sometimes, the system drops the screen or pauses tracking when your wrist is lowered. We maintain strict quality control, meaning we only generate scores when we capture uninterrupted, high-quality sensor data.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">Why doesn't my Score correlate with my actual Shooting Percentage (FG%)?</button>
+          <div class="faq-a">This is completely normal for a few reasons:
+
+• Short-term variance: One or two shots always involve luck. Hot Hand focuses on building long-term habits, helping you lock in a stable posture and master your guide hand control.
+
+• Dynamic Scoring: As you get better, the app gets stricter. If you consistently hit your shots within your "MADE Band," the band automatically narrows. Getting an 80 score on Day 1 is much easier than getting an 80 score after three months of use. The score shows you where there's room to grow.
+
+• The Shooting Hand: Remember, the watch is tracking your off-hand/guide arm. The final result of a shot relies heavily on your shooting hand (keeping space between the ball and palm, rolling off the fingertips, and snapping your wrist).</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">What counts as a "Session"? How can I use the app like a pro?</button>
+          <div class="faq-a">While shooting around freestyle is fun, professional use requires minimizing variance. Try to dedicate a single session to one specific type of drill (e.g., exclusively catch-and-shoot threes, or exclusively free throws from the same spot).
+
+Make good use of the Remarks & Comments feature to tag your sessions. This allows you to track how your metrics change over time for specific types of shots.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">I want to let a friend try the app, but I don't want their shots ruining my model. What should I do?</button>
+          <div class="faq-a">Simply swipe right on their Session Card and select "Exclude from building your model." Your friend can still see how their form scores against your baseline (it's fun to see how different your styles are!), but their data won't corrupt your personal shot signature.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">Does the Apple Watch store all my data forever?</button>
+          <div class="faq-a">No. We designed the Watch app to be extremely lightweight while doing the heavy lifting of recording 200Hz high-frequency sensor data. The Watch offloads the data processing and storage to your iPhone.
+
+Once the Watch confirms your iPhone has received the session data, it deletes the raw data locally. Your Watch will only keep a surface-level record of your last 20 sessions. (Note: If you delete a session on your iPhone, it will not sync back to the Watch).</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">When does the Watch record motion, and what do the two "End" buttons do?</button>
+          <div class="faq-a">Recording starts only after you Start Session (when the countdown finishes). The Watch then records high-frequency motion at 200Hz for the session.
+
+There are two different "end" actions:
+
+• End Session (Save/Unsave): From the session screen, swipe up to show End Session, tap it, then choose Save session or Unsave session. This ends that one shooting session and saves or discards its data. Motion recording (200Hz) stops here. The workout in Apple Health stays open so you can start another session or end the workout later.
+
+• End (long-press on the main screen): From the main menu, press and hold the red "End" button for about 1 second. This ends the HealthKit workout (the workout segment that can span multiple sessions). By then, 200Hz has already stopped when you did End Session; this button only closes the workout in Health.
+
+In short: 200Hz is on from Start Session until you End Session (Save/Unsave). After End Session, 200Hz is off even if you haven't long-pressed End yet. Long-press End only closes the workout in Health.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">How do I undo the last shot?</button>
+          <div class="faq-a">Tap the counter text (e.g., 5/10 (50%)) to undo the previous action.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">Is there a limit per session?</button>
+          <div class="faq-a">Yes. Each session is capped at 99 shots.</div>
+        </li>
+        <li class="faq-item">
+          <button type="button" class="faq-q">App keeps returning to Home Screen?</button>
+          <div class="faq-a">To prevent the watch from accidentally exiting during your workout, please disable these settings:
+
+Settings > Accessibility > AssistiveTouch → OFF
+
+Settings > Accessibility > AssistiveTouch > Hand Gestures → OFF</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Replace the href below with your actual Google Form URL (Contact Us link from your main page) -->
+    <section class="section">
+      <h2>Feedback</h2>
+      <p>Couldn't find your answer above? You can submit questions and feedback through our form. We use it to improve the app and to reply when needed.</p>
+      <a class="link-btn" href="https://forms.gle/REPLACE_WITH_YOUR_GOOGLE_FORM_ID" target="_blank" rel="noopener">Submit feedback</a>
+    </section>
+
+    <section class="section">
+      <h2>Other questions</h2>
+      <p>For anything else, feel free to email us at <a href="mailto:HotHand.basketballapp@gmail.com">HotHand.basketballapp@gmail.com</a>. We’re happy to help.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#">Contact</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="index.html#">Privacy Policy</a>
+      </div>
+      <p class="footer-copy">© 2026 Hot Hand</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
