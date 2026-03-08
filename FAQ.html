@@ -13,6 +13,10 @@
       --accent: #f97316;
       --accent-hover: #ea580c;
       --border: rgba(255,255,255,0.08);
+      /* index.html header (match exactly) */
+      --bg-color: #000000;
+      --text-white: #ffffff;
+      --text-grey: #8a8a8e;
     }
     * { box-sizing: border-box; }
     body {
@@ -25,19 +29,34 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--accent-hover); text-decoration: underline; }
 
-    /* Nav — match main site */
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
+    /* Header — same as index.html */
+    header {
+      width: 100%;
       max-width: 1200px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3rem;
+      box-sizing: border-box;
     }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-links a { color: var(--text); }
-    .nav-links a:hover { color: var(--accent); }
+    .header-logo {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .header-logo a { color: var(--text-white); }
+    .header-logo a:hover { color: var(--text-white); text-decoration: none; }
+    .header-nav {
+      display: flex;
+      gap: 2rem;
+    }
+    .header-nav a {
+      color: var(--text-grey);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .header-nav a:hover { color: var(--text-white); text-decoration: none; }
 
     /* Hero */
     .hero {
