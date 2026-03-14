@@ -132,27 +132,14 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 1.5rem;
+            overflow: hidden;
         }
 
-        .shape-square {
-            width: 90px;
-            height: 90px;
-            background-color: var(--shape-color);
-        }
-
-        .shape-circle {
-            width: 96px;
-            height: 96px;
-            background-color: var(--shape-color);
-            border-radius: 50%;
-        }
-
-        .shape-triangle {
-            width: 0;
-            height: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            border-bottom: 86px solid var(--shape-color);
+        .feature-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .feature-title {
@@ -223,9 +210,9 @@
     <header>
         <div class="header-logo">Hot Hand Basketball App</div>
         <nav class="header-nav">
-            <a href="#">Home</a>
-            <a href="#">Features</a>
-            <a href="#">Blog</a>
+            <a href="index.html">Home</a>
+            <a href="https://apps.apple.com/app/id6759874615" target="_blank">App Store</a>
+            <a href="Blog/index.html">Blog</a>
         </nav>
     </header>
 
@@ -244,7 +231,7 @@
         <section class="features">
             <div class="feature-card">
                 <div class="card-image-box">
-                    <div class="shape-square"></div>
+                    <img src="watch.jpeg" alt="watchOS recorder" class="feature-image">
                 </div>
                 <h3 class="feature-title">watchOS recorder.</h3>
                 <p class="feature-desc">The high fidelity shooting motion recorded in 200Hz powered by your Apple Watch.</p>
@@ -252,7 +239,7 @@
             
             <div class="feature-card">
                 <div class="card-image-box">
-                    <div class="shape-circle"></div>
+                    <img src="score.jpeg" alt="iPhone analysis" class="feature-image">
                 </div>
                 <h3 class="feature-title">iPhone analysis.</h3>
                 <p class="feature-desc">Review shot results, visualize motion metrics, and discover your personalized diagnosis.</p>
@@ -260,7 +247,7 @@
 
             <div class="feature-card">
                 <div class="card-image-box">
-                    <div class="shape-triangle"></div>
+                    <img src="cover.jpg" alt="Training guides" class="feature-image">
                 </div>
                 <h3 class="feature-title">Training guides.</h3>
                 <p class="feature-desc">Believe the biomechanics and physics behind your shot. Focus. Practice. See the change.</p>
@@ -277,9 +264,8 @@
         <div class="footer-links">
             <div class="footer-column">
                 <div class="footer-column-title">App</div>
-                <a href="#">Download</a>
-                <a href="#">Features</a>
-                <a href="#">Blog</a>
+                <a href="https://apps.apple.com/app/id6759874615" target="_blank">App Store</a>
+                <a href="Blog/index.html">Blog</a>
             </div>
             <div class="footer-column">
                 <div class="footer-column-title">Support</div>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Hot Hand Basketball App</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --bg-card: #1a1a1a;
+      --text: #f5f5f5;
+      --text-muted: #a3a3a3;
+      --accent: #f97316;
+      --accent-hover: #ea580c;
+      --border: rgba(255,255,255,0.08);
+      /* index.html header (match exactly) */
+      --bg-color: #000000;
+      --text-white: #ffffff;
+      --text-grey: #8a8a8e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    /* Header — same as index.html / FAQ */
+    header {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3rem;
+      box-sizing: border-box;
+    }
+    .header-logo {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .header-logo a { color: var(--text-white); }
+    .header-logo a:hover { color: var(--text-white); text-decoration: none; }
+    .header-nav {
+      display: flex;
+      gap: 2rem;
+    }
+    .header-nav a {
+      color: var(--text-grey);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .header-nav a:hover { color: var(--text-white); text-decoration: none; }
+
+    main {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .hero {
+      text-align: left;
+      padding: 1rem 0 2rem;
+    }
+    .hero-title {
+      font-size: 2.1rem;
+      margin: 0 0 0.3rem;
+    }
+    .hero-subtitle {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* List view */
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .post-card {
+      border-radius: 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, transform 0.12s;
+    }
+    .post-card:hover {
+      background: #1f1f1f;
+      border-color: rgba(249,115,22,0.4);
+      transform: translateY(-1px);
+    }
+    .post-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 0.15rem;
+    }
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+    .post-excerpt {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Detail view */
+    .post-detail {
+      margin-top: 2rem;
+    }
+    .post-detail-header {
+      margin-bottom: 1.5rem;
+    }
+    .post-detail-title {
+      font-size: 1.7rem;
+      margin: 0 0 0.25rem;
+    }
+    .post-detail-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .post-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .post-back:hover { color: var(--accent); text-decoration: none; }
+    .post-body {
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+    .post-body p {
+      margin: 0 0 1rem;
+    }
+    .post-body h2,
+    .post-body h3 {
+      margin: 1.75rem 0 0.5rem;
+      font-size: 1.15rem;
+    }
+
+    /* Empty state */
+    .empty {
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer — simple, centered */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .footer-links a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-logo"><a href="../index.html">Hot Hand Basketball App</a></div>
+    <nav class="header-nav">
+      <a href="../index.html">Home</a>
+      <a href="https://apps.apple.com/app/id6759874615" target="_blank">App Store</a>
+      <a href="./index.html">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="hero-title">Hot Hand Blog</h1>
+      <p class="hero-subtitle">Product updates, shooting insights, and behind-the-scenes notes.</p>
+    </section>
+
+    <!-- List container -->
+    <section id="post-list-view">
+      <div class="post-list" id="post-list"></div>
+      <p class="empty" id="empty-state" style="display:none;">No posts yet. Once you upload blog .txt files and register them in <code>posts.json</code>, they will appear here automatically.</p>
+    </section>
+
+    <!-- Detail container -->
+    <section id="post-detail-view" style="display:none;">
+      <a href="./index.html" class="post-back">← Back to all posts</a>
+      <article class="post-detail">
+        <header class="post-detail-header">
+          <h1 class="post-detail-title" id="detail-title"></h1>
+          <div class="post-detail-meta" id="detail-meta"></div>
+        </header>
+        <div class="post-body" id="detail-body"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../FAQ.html">FAQ</a>
+        <a href="../PrivacyPolicy.html">Privacy Policy</a>
+      </div>
+      <p>© 2026 Hot Hand</p>
+    </div>
+  </footer>
+
+  <script>
+    // 1) Read posts metadata from posts.json
+    async function loadPostsMeta() {
+      try {
+        const res = await fetch('./posts.json?ts=' + Date.now());
+        if (!res.ok) throw new Error('posts.json not found');
+        const data = await res.json();
+        return Array.isArray(data) ? data : [];
+      } catch (e) {
+        console.warn('Failed to load posts.json', e);
+        return [];
+      }
+    }
+
+    // 2) Very small "renderer" that turns plain text into paragraphs and headings
+    function renderPlainTextToHtml(text) {
+      const lines = text.replace(/\r\n/g, '\n').split('\n');
+      const blocks = [];
+      let current = [];
+      for (const line of lines) {
+        if (line.trim() === '') {
+          if (current.length) {
+            blocks.push(current.join(' '));
+            current = [];
+          }
+        } else {
+          current.push(line.trim());
+        }
+      }
+      if (current.length) blocks.push(current.join(' '));
+
+      // First block stays p; if a block starts with "## " treat as h2, "# " as h1/h2.
+      return blocks.map((block, idx) => {
+        if (block.startsWith('### ')) {
+          return '<h3>' + block.slice(4) + '</h3>';
+        } else if (block.startsWith('## ')) {
+          return '<h2>' + block.slice(3) + '</h2>';
+        } else if (block.startsWith('# ')) {
+          return '<h2>' + block.slice(2) + '</h2>';
+        } else {
+          return '<p>' + block + '</p>';
+        }
+      }).join('\n');
+    }
+
+    function getQueryParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    async function buildListView(posts) {
+      const listEl = document.getElementById('post-list');
+      const emptyEl = document.getElementById('empty-state');
+
+      if (!posts.length) {
+        emptyEl.style.display = 'block';
+        return;
+      }
+
+      emptyEl.style.display = 'none';
+      listEl.innerHTML = '';
+
+      for (const post of posts) {
+        const card = document.createElement('article');
+        card.className = 'post-card';
+        card.onclick = () => {
+          const url = new URL(window.location.href);
+          url.searchParams.set('id', post.id);
+          window.location.href = url.toString();
+        };
+
+        const title = document.createElement('h2');
+        title.className = 'post-title';
+        title.textContent = post.title || 'Untitled';
+
+        const meta = document.createElement('div');
+        meta.className = 'post-meta';
+        meta.textContent = post.date || '';
+
+        const excerptEl = document.createElement('p');
+        excerptEl.className = 'post-excerpt';
+        excerptEl.textContent = post.excerpt || '';
+
+        card.appendChild(title);
+        card.appendChild(meta);
+        if (post.excerpt) card.appendChild(excerptEl);
+        listEl.appendChild(card);
+      }
+    }
+
+    async function buildDetailView(posts, id) {
+      const post = posts.find(p => p.id === id);
+      const listView = document.getElementById('post-list-view');
+      const detailView = document.getElementById('post-detail-view');
+      if (!post) {
+        // fall back to list if id not found
+        listView.style.display = 'block';
+        detailView.style.display = 'none';
+        return;
+      }
+
+      listView.style.display = 'none';
+      detailView.style.display = 'block';
+
+      document.getElementById('detail-title').textContent = post.title || '';
+      document.getElementById('detail-meta').textContent = post.date || '';
+
+      try {
+        const res = await fetch('./' + post.file + '?ts=' + Date.now());
+        const text = await res.text();
+        document.getElementById('detail-body').innerHTML = renderPlainTextToHtml(text);
+      } catch (e) {
+        document.getElementById('detail-body').innerHTML = '<p style="color:var(--text-muted);">Unable to load this article.</p>';
+      }
+    }
+
+    (async function init() {
+      const posts = await loadPostsMeta();
+      const currentId = getQueryParam('id');
+      if (currentId) {
+        await buildDetailView(posts, currentId);
+      } else {
+        await buildListView(posts);
+      }
+    })();
+  </script>
+</body>
+</html>
+

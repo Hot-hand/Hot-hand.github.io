@@ -1,0 +1,36 @@
+Why did I build this app?
+
+I love playing basketball. The beauty of basketball is that it is both a team sport and a solo practice sport that is genuinely fun. Those two sides are inseparable: how you perform in real games is tightly connected to the quality of your solo work. Modern basketball is also shifting away from heavy physical contact and placing more emphasis on precise shooting. And for that kind of solo practice, all you really need is a pair of shoes and a ball.
+
+Basketball has been a thread running through my youth. I started playing in middle school, stopped during college and my PhD years, and only recently rediscovered my love for it. When I came back, I realized I really needed a simple tool that could help me track my current shooting percentage.
+
+I tried many small apps that claim to do this, but none of their interactions really satisfied me. Some apps rely on turning the Digital Crown, but it is hard to control and see exactly how much you have rotated. Others try to detect gestures by flipping your wrist, but motion-based recognition alone still is not accurate enough.
+
+So my first interaction design decision was: keep it primitive and reliable. On the watch, I use two big buttons—make or miss—plus a large counter above that shows makes / attempts (accuracy %). Tapping the counter undoes the previous action and gives you haptic feedback. It is meant to be something you can operate mid‑session without thinking.
+
+With today’s coding agents and tools, building this simple counter feature is actually not very hard. But I wanted the tool to be more than that—to be genuinely cool.
+
+I have a PhD in geophysics. Motion data has a lot in common with the seismic data we deal with. At a basic level, both are just simple x, y, z acceleration signals over time. Yet geophysicists can analyze those signals to infer the direction of slip on a major earthquake, the direction of mantle flow hundreds of kilometers below the surface, or to image the subsurface like ultrasound—identifying likely oil reservoirs on a small scale and mapping entire subduction zones between tectonic plates on a large scale.
+
+So I am convinced that the motion data from a basketball shot also contains enormous, untapped analytical value. What if we could combine motion data with shot outcomes and let the app learn the patterns of your made shots, then use that to guide you toward better, more stable shooting?
+
+This leads to the core philosophy of the app: I believe every shooter’s motion path is unique. There is no single “universal template.” If there must be something you learn from, it should be your own made shots. I believe that the trajectories of your made shots share meaningful common structure.
+
+There is one non‑negotiable line for me when it comes to tracking and data collection: the watch must stay on the guide/off‑hand, not the shooting hand. I have tried other apps that require you to wear the watch on your shooting wrist. Even if I admit that the shooting hand has a bigger direct impact on makes and misses, wearing a watch on that wrist just feels wrong.
+
+To respect that constraint, I collected and analyzed my own shooting data, splitting shots into two groups: makes and misses. Based on the full motion of the shot, I computed many different metrics by combining different signal types (accelerations, rotations, etc.). I then asked: which metrics actually help distinguish makes from misses? Metrics that did not matter much for that separation were dropped. In the end, I arrived at six key indicators.
+
+My goal is that after a training session, you can go back and review these metrics. The scoring for each metric is based on how similar each shot is to the motion patterns of your historical made shots within that session.
+
+From my own shooting experience, in maybe 50% of my shots, I can already feel at the moment of release whether it will go in and how it will miss. Sometimes there is a stable, almost magical rhythm—where the instant the ball leaves your hand, you know it is going in. That feeling is what people call the “hot hand.”
+
+To match that theme, the watch UI is intentionally simple but designed to amplify the joy of a made shot. When you hit two or more in a row, a flame effect appears on the “make” button. As your streak grows, the 🔥 effect becomes more exaggerated, mirroring that feeling of being absolutely on fire. Compared with the watch side, which focuses on simplicity and instant “fun,” the iPhone side aims to be more analytical and visually rich.
+
+Historically, all of the motion analysis and computation is done locally, so there is no need to worry about data leaks. Data is synced via iCloud and persisted, so you can look back at how your various metrics evolve over months of training.
+
+To make syncing between watch and phone feel seamless and to use storage efficiently, I have also done a lot of technical optimization behind the scenes—reducing storage load on the phone and keeping computation and UI smooth on the watch. I will write about these engineering details in other posts.
+
+In short, Hot Hand is designed to blend three things: simplicity, pure fun, and serious analysis. Paid users can unlock deeper biomechanical analysis of their shot motion data. Free users still get a slick, satisfying shot counter that feels great to use. I hope you enjoy training with it.
+
+If you have any ideas or suggestions, feel free to email me at: hothand.basketballapp@gmail.com
+
