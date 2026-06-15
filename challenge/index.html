@@ -4,226 +4,38 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-itunes-app" content="app-id=6759874615">
-  <title>Hot Hand Challenge</title>
+  <meta http-equiv="refresh" content="0; url=https://apps.apple.com/app/id6759874615">
+  <title>Opening Hot Hand Basketball</title>
   <style>
     :root {
       color-scheme: dark;
-      --bg: #07090d;
-      --panel: #10151f;
-      --panel-2: #151d2a;
-      --text: #f7fbff;
-      --muted: #9aa7b6;
-      --line: #263243;
-      --accent: #ff7a1a;
-      --accent-2: #ffd166;
-    }
-
-    * {
-      box-sizing: border-box;
+      background: #05070a;
+      color: #f6f7f9;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
+      margin: 0;
       display: grid;
       place-items: center;
-      padding: 28px 18px;
-      background:
-        radial-gradient(circle at 50% -20%, rgba(255, 122, 26, 0.28), transparent 34rem),
-        linear-gradient(180deg, #0a0f18 0%, var(--bg) 62%);
-      color: var(--text);
-      font: 16px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-    }
-
-    main {
-      width: min(100%, 440px);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .mark {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #111;
-      font-weight: 900;
-      letter-spacing: 0;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 25px;
-      line-height: 1.08;
-      letter-spacing: 0;
-    }
-
-    .sub {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
-      padding: 20px;
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
-    }
-
-    .label {
-      margin: 0 0 10px;
-      color: var(--accent-2);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 18px 0;
-    }
-
-    .stat {
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
-      padding: 14px;
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 30px;
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .stat span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .description {
-      min-height: 22px;
-      margin: 0 0 18px;
-      color: #dce6ef;
-    }
-
-    .locked {
-      margin: 0;
-      padding: 12px;
-      border: 1px solid rgba(255, 209, 102, 0.24);
-      border-radius: 8px;
-      background: rgba(255, 209, 102, 0.08);
-      color: #ffe4a3;
-      font-size: 14px;
-    }
-
-    .actions {
-      display: grid;
-      gap: 10px;
-      margin-top: 18px;
+      padding: 24px;
+      text-align: center;
     }
 
     a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 48px;
-      border-radius: 8px;
-      text-decoration: none;
+      color: #ff7a1a;
       font-weight: 700;
-      letter-spacing: 0;
-    }
-
-    .primary {
-      background: var(--accent);
-      color: #14100d;
-    }
-
-    .secondary {
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .foot {
-      margin: 14px 2px 0;
-      color: var(--muted);
-      font-size: 12px;
-      text-align: center;
     }
   </style>
+  <script>
+    window.location.replace("https://apps.apple.com/app/id6759874615");
+  </script>
 </head>
 <body>
   <main>
-    <div class="brand">
-      <div class="mark">HH</div>
-      <div>
-        <h1>Hot Hand Challenge</h1>
-        <p class="sub">Record a matching session to reveal the score.</p>
-      </div>
-    </div>
-
-    <section class="card" aria-live="polite">
-      <p class="label">Challenge Preview</p>
-      <div class="stats">
-        <div class="stat">
-          <strong id="attempts">--</strong>
-          <span>Total attempts</span>
-        </div>
-        <div class="stat">
-          <strong id="location">--</strong>
-          <span>Shot location</span>
-        </div>
-      </div>
-      <p class="description" id="description"></p>
-      <p class="locked">MADE is hidden. Match the attempts and shot location in Hot Hand to reveal it.</p>
-      <div class="actions">
-        <a class="primary" id="openApp" href="https://apps.apple.com/app/id6759874615">Open in Hot Hand</a>
-        <a class="secondary" href="https://apps.apple.com/app/id6759874615">Get the App</a>
-      </div>
-    </section>
-
-    <p class="foot">Friendly challenge. Results are logged in Hot Hand.</p>
+    <p>Opening Hot Hand Basketball...</p>
+    <p><a href="https://apps.apple.com/app/id6759874615">Open App Store</a></p>
   </main>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const payload = params.get("p");
-    const appLink = window.location.href;
-    document.getElementById("openApp").href = appLink;
-
-    function decodePayload(value) {
-      if (!value) return null;
-      const padded = value.replace(/-/g, "+").replace(/_/g, "/") + "=".repeat((4 - value.length % 4) % 4);
-      const bytes = Uint8Array.from(atob(padded), character => character.charCodeAt(0));
-      return JSON.parse(new TextDecoder().decode(bytes));
-    }
-
-    try {
-      const data = decodePayload(payload);
-      if (data) {
-        document.getElementById("attempts").textContent = data.a ?? data.attempts ?? "--";
-        document.getElementById("location").textContent = data.l ?? data.location ?? "--";
-        document.getElementById("description").textContent = data.d ?? data.description ?? "";
-      }
-    } catch (error) {
-      document.getElementById("description").textContent = "Open this challenge in Hot Hand.";
-    }
-  </script>
 </body>
 </html>
