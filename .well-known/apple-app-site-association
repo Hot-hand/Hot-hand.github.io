@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "26Y5Y9956T.zom.HotHand",
+        "paths": [
+          "/challenge",
+          "/challenge/",
+          "/challenge/*"
+        ]
+      }
+    ]
+  }
+}
